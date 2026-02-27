@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Debugger</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-bar">
+        <button onclick="toggleLightMode()">Light Mode</button>
+        <button onclick="toggleCheatSheet()">📘 Cheat Sheet</button>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Regular Expression Debugger</h1>
+            <p>Test, debug and understand regex patterns</p>
+        </div>
+
+        <div class="content">
+            <div class="input-group">
+                <label>Test Text</label>
+                <textarea id="testText" placeholder="Enter text here..."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Regex Pattern</label>
+                <input type="text" id="regexPattern" placeholder="e.g. (\\w+)@(\\w+)" value="\\b\\w+">
+                <div class="flags">
+                    <label><input type="checkbox" id="flagG" checked> g (global case)</label>
+                    <label><input type="checkbox" id="flagI"> i (ignore case)</label>
+                    <label><input type="checkbox" id="flagM"> m (multiline)</label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Replace With (optional)</label>
+                <input type="text" id="replaceText" placeholder="Replacement text">
+            </div>
+
+            <div class="buttons">
+                <button class="primary" onclick="testRegex()">Test Regex</button>
+                <button onclick="clearAll()">Clear</button>
+            </div>
+
+            <div id="results"></div>
+        </div>
+    </div>
+
+    <!-- Cheat Sheet Modal -->
+    <div class="modal" id="cheatSheet">
+        <div class="modal-content">
+            <h2>Regex Cheat Sheet</h2>
+            <ul>
+                <li><b>\d</b> - digit</li>
+                <li><b>\w</b> - word character</li>
+                <li><b>\s</b> - whitespace</li>
+                <li><b>.</b> - any character</li>
+                <li><b>*</b> - 0 or more</li>
+                <li><b>+</b> - 1 or more</li>
+                <li><b>?</b> - optional</li>
+                <li><b>( )</b> - capture group</li>
+                <li><b>[abc]</b> - character set</li>
+                <li><b>^</b> - start of string</li>
+                <li><b>$</b> - end of string</li>
+            </ul>
+            <button onclick="toggleCheatSheet()">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
